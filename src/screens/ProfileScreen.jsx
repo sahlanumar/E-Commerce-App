@@ -6,6 +6,7 @@ import {
   Text,
   ScrollView,
   Alert,
+  StatusBar,
 } from "react-native";
 import { userProfile, profileMenus } from "../constants/data";
 import { ProfileHeader } from "../components/molecules";
@@ -44,6 +45,7 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: "#f8f9fa",
+    paddingTop: StatusBar.currentHeight,
   },
   header: {
     padding: 16,

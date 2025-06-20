@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
-import QuantitySelector from "./cart/QuantitySelector";
+import QuantitySelector from "../cart/QuantitySelector";
 
 const CartItemCard = ({ item, onIncrease, onDecrease }) => {
   return (

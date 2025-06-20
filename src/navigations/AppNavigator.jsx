@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import TabsNavigation from "./TabsNavigation";
 import ProductDetailScreen from "../screens/ProductDetailScreen";
+import ProductListScreen from "../screens/ProductListScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +26,12 @@ const AppNavigator = () => {
             title: "Detail Produk",
             headerTitleAlign: "center",
           }}
+        />
+
+        <Stack.Screen
+          name="ProductList"
+          component={ProductListScreen}
+          options={{ headerTitleAlign: "center" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

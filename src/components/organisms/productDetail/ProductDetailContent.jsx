@@ -1,6 +1,6 @@
 import React from "react";
 import { ScrollView, View, Image, StyleSheet } from "react-native";
-import { ProductInfo, ProductDescription, SellerInfo } from "../molecules";
+import { ProductInfo, ProductDescription, SellerInfo } from "../../molecules";
 
 const Divider = () => <View style={styles.divider} />;
 

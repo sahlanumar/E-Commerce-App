@@ -1,6 +1,6 @@
 import React from "react";
 import { FlatList, View, Text, StyleSheet } from "react-native";
-import { CartItemCard } from "../molecules";
+import { CartItemCard } from "../../molecules";
 
 const CartList = ({ items, onIncrease, onDecrease }) => {
   if (items.length === 0) {

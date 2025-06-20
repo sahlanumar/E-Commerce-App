@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { View, Text, StyleSheet, SafeAreaView, Alert } from "react-native";
-// Pastikan path import sudah benar
+import { View, Text, StyleSheet, SafeAreaView, Alert ,StatusBar} from "react-native";
 import { products, sampleCart } from "../constants/data";
 import { CartList, CheckoutFooter } from "../components/organisms";
 
@@ -17,7 +16,6 @@ const CartScreen = () => {
           (p) => p.id === cartItem.productId
         );
 
-        // 2. Jika produk tidak ditemukan, kembalikan null
         if (!productDetails) {
           console.warn(
             `Produk dengan ID "${cartItem.productId}" tidak ditemukan di daftar produk.`
@@ -25,7 +23,7 @@ const CartScreen = () => {
           return null;
         }
 
-        // 3. Jika ditemukan, gabungkan data
+
         return {
           ...productDetails,
           quantity: cartItem.quantity,
@@ -89,6 +87,7 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: "#f8f9fa",
+    paddingTop: StatusBar.currentHeight,
   },
   header: {
     padding: 16,

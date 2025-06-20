@@ -1,22 +1,63 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import {
+  StyleSheet,
+  SafeAreaView,
+  View,
+  Text,
+  FlatList,
+  StatusBar,
+} from "react-native";
+import { categories } from "../constants/data";
+import { CategoryGridItem } from "../components/molecules";
 
-const CategoriesScreen = () => {
+const CategoriesScreen = ({ navigation }) => {
+  const handleCategoryPress = (category) => {
+    navigation.navigate("ProductList", {
+      categoryId: category.id,
+      categoryName: category.name,
+    });
+  };
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Home Screen</Text>
-    </View>
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.header}>
+        <Text style={styles.headerTitle}>Semua Kategori</Text>
+      </View>
+      <FlatList
+        data={categories}
+        keyExtractor={(item) => item.id}
+        numColumns={2}
+        renderItem={({ item }) => (
+          <CategoryGridItem
+            item={item}
+            onPress={() => handleCategoryPress(item)}
+          />
+        )}
+        contentContainerStyle={styles.gridContainer}
+      />
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  safeArea: {
     flex: 1,
-    justifyContent: "center",
+    backgroundColor: "#f8f9fa",
+    paddingTop: StatusBar.currentHeight,
+  },
+  header: {
+    padding: 16,
+    backgroundColor: "white",
+    borderBottomWidth: 1,
+    borderBottomColor: "#e9ecef",
     alignItems: "center",
   },
-  text: {
-    fontSize: 24,
+  headerTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  gridContainer: {
+    padding: 8,
   },
 });
 

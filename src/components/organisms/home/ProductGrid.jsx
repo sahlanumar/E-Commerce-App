@@ -1,9 +1,8 @@
 import React from "react";
 import { View, FlatList, StyleSheet, Text } from "react-native";
-import { ProductCard } from "../molecules";
+import { ProductCard } from "../../molecules";
 
-const ProductGrid = ({ products , navigation }) => {
-
+const ProductGrid = ({ products, navigation }) => {
   const handleProductPress = (item) => {
     navigation.navigate("ProductDetail", { productId: item.id });
   };
